@@ -18,8 +18,11 @@ function route(app) {
 	});
 
 	app.get('/', function (req, res) {
-		res.send('GET request to the homepage');
-		console.log('HAAAA!');
+		fs.readFile('app/public/home.html', 'utf8', function (err, data) {
+			if (err) throw err;
+			res.send(data);
+
+		});
 	});
 }
 
